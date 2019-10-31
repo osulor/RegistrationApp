@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import com.example.registrationapp.R
+import com.example.registrationapp.model.User
 import com.example.registrationapp.util.Constants
 import kotlinx.android.synthetic.main.activity_second.*
 
@@ -19,15 +20,33 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-        intent?.getStringExtra(Constants.NAME_KEY)?.let { name ->
+//        intent?.getStringExtra(Constants.NAME_KEY)?.let { name ->
+//            fullName2_textView.text = name
+//        }
+//
+//        intent?.getStringExtra(Constants.PHONE_KEY)?.let { phone ->
+//            phone2_textView.text = phone
+//        }
+//
+//        intent?.getStringExtra(Constants.EMAIL_KEY)?.let { email ->
+//            email2_textView.text = email
+//        }
+
+        val userName = intent?.getParcelableExtra(Constants.NAME_KEY) as User
+        userName.let { user ->
+            val name = user.name
             fullName2_textView.text = name
         }
 
-        intent?.getStringExtra(Constants.PHONE_KEY)?.let { phone ->
+        val userPhone = intent?.getParcelableExtra(Constants.PHONE_KEY) as User
+        userPhone.let { user ->
+            val phone = user.phone
             phone2_textView.text = phone
         }
 
-        intent?.getStringExtra(Constants.EMAIL_KEY)?.let { email ->
+        val userEmail = intent?.getParcelableExtra(Constants.EMAIL_KEY) as User
+        userEmail.let { user ->
+            val email = user.email
             email2_textView.text = email
         }
 
