@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
             val email = email_editText.text.toString()
 
             val user = User(name,email,phone)
-            intent.putExtra(Constants.NAME_KEY, user)
-            intent.putExtra(Constants.PHONE_KEY, user)
-            intent.putExtra(Constants.EMAIL_KEY, user)
+            intent.putExtra(Constants.USERS_INFOS, user)
+            //intent.putExtra(Constants.PHONE_KEY, user)
+            //intent.putExtra(Constants.EMAIL_KEY, user)
             startActivity(intent)
         }
 

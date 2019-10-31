@@ -20,35 +20,18 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
-//        intent?.getStringExtra(Constants.NAME_KEY)?.let { name ->
-//            fullName2_textView.text = name
-//        }
-//
-//        intent?.getStringExtra(Constants.PHONE_KEY)?.let { phone ->
-//            phone2_textView.text = phone
-//        }
-//
-//        intent?.getStringExtra(Constants.EMAIL_KEY)?.let { email ->
-//            email2_textView.text = email
-//        }
 
-        val userName = intent?.getParcelableExtra(Constants.NAME_KEY) as User
+    val userName = intent?.getParcelableExtra(Constants.USERS_INFOS) as User
         userName.let { user ->
             val name = user.name
-            fullName2_textView.text = name
-        }
-
-        val userPhone = intent?.getParcelableExtra(Constants.PHONE_KEY) as User
-        userPhone.let { user ->
             val phone = user.phone
-            phone2_textView.text = phone
-        }
-
-        val userEmail = intent?.getParcelableExtra(Constants.EMAIL_KEY) as User
-        userEmail.let { user ->
             val email = user.email
+            fullName2_textView.text = name
+            phone2_textView.text = phone
             email2_textView.text = email
         }
+
+
 
         register_button.setOnClickListener {
             val intent = Intent(this,SuccessActivity::class.java)
